@@ -1,0 +1,25 @@
+Question 1: Describe the errors that occur when trying to assemble lab11.asm. Identify the cause of each error.
+The error at line 14 said that there was no start point to the code. This was caused by a lack of a .ORIG directive prior to the x3000.
+
+The error at line 17 was caused by the program trying to load a value that was x3011 addresses away. Aside from trying to load something that was out of bounds, the program was attempting to load an incorrect value anyways. The program should have been loading the value that was 15 addresses away given that R2 is supposed to hold -1.
+
+The error at line 19 said that the program was trying to use illegal operands for the AND function. This was caused by a typo of an extra comma in the code.
+
+The error at line 30 was the same as the error at line 17; it was trying to load from an address by specifying the address. This is against the load instruction and leads to the specified constant being out of bounds. To change this the user simply needs to change their constant to a value that when added to the PC will take them to their desired address
+
+The error at line 32 said that the label OUTERLOOP had already been used. This was caused by the nzp being out of ordered so the BRANCH function wasn't recognized by the compiler because it was written as BRpz not BRzp
+
+The error at line 35 was the same as the error at lines 17 and 30 the ST function needs to be relative to the PC as that will take the program to that address. The programmer shouldn't be write the code asking for an address. It should be written to add to the current PC value to go to the desired PC value. For this specific instance the FILL label can be used because that is what we want to load into R1
+ 
+The error at line 43 said that there was no endpoint to the code. This was caused by a lack of a .END directive at the end of the code.
+
+
+Question 2: For each label in the code, write down the corresponding memory location. 
+
+OUTERLOOP refers to memory location x3004
+INNERLOOP refers to memory location x3005
+FILL refers to x300E
+
+Question 3: Between using labels and explicit memory locations/offsets, which one makes the most sense, and why?
+
+Using labels makes the most sense because it greatly reduces the possibility for error and maximizes efficiency as the programmer no longer needs to count addresses for the offsets/explicit memory locations

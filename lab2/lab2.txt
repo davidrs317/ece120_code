@@ -1,0 +1,20 @@
+For Integers
+1. -726
+2. 4
+3. 3
+For Unsigned Integers
+1. 4294966570
+2. 4
+3. 3
+For Floating-Point Integers
+1. -726.000000
+2. 4.000000
+3. 3.333333
+For Doubles
+1. -726.00000
+2. 4.000000
+3. 3.333333
+For Modulo Calculations
+1. 0
+2. -2
+

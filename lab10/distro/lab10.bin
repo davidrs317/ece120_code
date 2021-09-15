@@ -1,0 +1,30 @@
+; This is the file you will use for the lab assignment
+; Make sure to comment your code properly and don't exceed 
+; the line limitation for this assignment.  Good luck!
+;David Sullivan 11/14/2019 Lab10
+;LC3 lab given to demonstrate my understanding
+;of binary code for the LC3
+;Register 3 is a pointer that directs the code to a register
+;from which to pull a number
+;Register 4 serves as a counter for the loop that controls the program
+;Register 5 is the register that serves
+;as the sum for all the positive numbers
+;Register 6 is the register that stores
+;the value held in the register that register
+;3 points to
+
+0011 0001 0000 0000 ; x3100 - starting address of the program
+1110 011 000110001 ; x3100 - load the value of address 3132 into register 3
+0101 100 100 1 00000; x3101 - R4 <- R4 and 0, intialize Register 4 to 0
+0001 100 100 1 01010; x3102 - R4 <- R4 ADD 10, set the value of Register 4 to 10
+0101 101 101 1 00000; x3103 - R5 <- R5 AND 0, initialize Register 5 to O
+0101 110 110 1 00000; x3104 - R5 <- R5 AND 0, initialize Register 5 to 0
+0110 110 011 000000; x3105 - R6 <- M[R3 + SEXT(offset6)] set R6 to the number stored in the address held in Register 3
+0000 100 000000001; x3106 - An if statement where if the value loaded is negative, the program will go two steps ahead
+0001 101 101 0 00 110; x3107 - R5 <- R5 ADD R6 set the value of R5 to the value of R6 plus the current value of R5
+0001 011 011 1 00001; x3108 - R3 <- R3 ADD 1 increment R3 by 1
+0001 100 100 1 11111; x3109 - R4 <- R4 ADD -1 decrement R4 by 1
+0000 001 111111010; x310A - a while loop, where while value of the counter is positive the program loops back to the step that loads the address
+1111 0000 00100101; x310B - R7 <- PC, PC <- M[ZEXT(00100101)] HALT 
+; The program description and code starts here
+
